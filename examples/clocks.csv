@@ -1,0 +1,5 @@
+id,local_time,zone,note
+normal,2024-01-15 10:00:00,America/New_York,winter clock
+fold,2024-11-03 01:30:00,America/New_York,two possible UTC instants
+gap,2024-03-10 02:30:00,America/New_York,no UTC instant
+quarter-hour,2024-01-01 05:45:00,Asia/Kathmandu,quarter-hour offset

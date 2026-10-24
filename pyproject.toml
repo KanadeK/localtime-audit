@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localtime-audit"
+version = "0.1.0"
+description = "Audit CSV local timestamps for missing and repeated times with explicit UTC candidates."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY.md"]
+authors = [{name = "KanadeK"}]
+dependencies = ['tzdata>=2025.2']
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.urls]
+Homepage = "https://github.com/KanadeK/localtime-audit"
+Issues = "https://github.com/KanadeK/localtime-audit/issues"
+
+[project.scripts]
+localtime-audit = "localtime_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S603"]
+
+[tool.coverage.run]
+source = ["localtime_audit"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 85
